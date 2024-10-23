@@ -13,35 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import ChatMessages from '../components/chat/ChatMessages.vue';
 import MessageBox from '../components/chat/MessageBox.vue';
-import type { ChatMessage } from '../interfaces/chat-message-interface';
+import {useChat} from '../composables/useChat'
 
-const messages = ref<ChatMessage[]>([
-  {
-    id: new Date().getTime(),
-    message: 'Hola Mundo',
-    itsMine: true,
-  },
-  {
-    id: new Date().getTime() + 3,
-    message: 'Quieres ir a tomar café?',
-    itsMine: true,
-  },
-  {
-    id: new Date().getTime() + 1,
-    message: 'No',
-    itsMine: false,
-    image: 'https://yesno.wtf/assets/no/12-dafd576be23d3768641340f76658ddfe.gif',
-  },
-])
-
-const onMessage = (text: string) => {
-  messages.value.push({
-    id: new Date().getTime(),
-    itsMine: true,
-    message: text,
-  })
-}
+const {messages, onMessage} = useChat()
 </script>
