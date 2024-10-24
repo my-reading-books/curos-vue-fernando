@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import ChatMessages from '../components/chat/ChatMessages.vue';
 import MessageBox from '../components/chat/MessageBox.vue';
-import {useChat} from '../composables/useChat'
+import { useChat } from '../composables/useChat'
 
-const {messages, onMessage} = useChat()
+const { messages, onMessage } = useChat()
 </script>
